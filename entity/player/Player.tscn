@@ -1,3 +1,16 @@
-[gd_scene format=3 uid="uid://bnu33fspyr4kb"]
+[gd_scene load_steps=4 format=3 uid="uid://bnu33fspyr4kb"]
 
-[node name="Player" type="Node2D"]
+[ext_resource type="Script" uid="uid://bpv80mqlwfkai" path="res://entity/player/player.gd" id="1_o3s7f"]
+[ext_resource type="Texture2D" uid="uid://cfjomswdyv7vn" path="res://entity/player/player.png" id="1_sntwv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sntwv"]
+radius = 7.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_o3s7f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_sntwv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_sntwv")
