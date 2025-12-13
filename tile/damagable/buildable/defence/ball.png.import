@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhdaq628vqh4p"
-path="res://.godot/imported/water.png-06847dc4ebb92710d2afbfc710a35c67.ctex"
+uid="uid://7k2hxk6cxyyw"
+path="res://.godot/imported/ball.png-fe41679c90f331b261977eed78427c79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tile/environment/obstacle/water.png"
-dest_files=["res://.godot/imported/water.png-06847dc4ebb92710d2afbfc710a35c67.ctex"]
+source_file="res://tile/damagable/buildable/defence/ball.png"
+dest_files=["res://.godot/imported/ball.png-fe41679c90f331b261977eed78427c79.ctex"]
 
 [params]
 

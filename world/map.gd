@@ -1,6 +1,5 @@
 extends Node2D
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -13,6 +12,9 @@ var curve_strength := 2.0 # higher = more square
 
 var time := 0.0
 var is_night := false
+
+@export var max_player = 4
+var players = {}
 
 func _process(delta):
 	time += delta
@@ -34,3 +36,19 @@ func _process(delta):
 	
 	if time_label != null:
 		time_label.text = "Current Time: " + ("Night" if is_night else "Day")
+	
+func _input(event: InputEvent) -> void:
+	var deviceId = event.device
+	
+	if not players.has(deviceId):
+	
+		var playerScene = preload("res://entity/player/Player.tscn")
+		var player = playerScene.instantiate()
+		
+		player.device_id = deviceId
+		players.set(deviceId, player)  
+		
+		add_child(player)
+	
+	#if InputEventJoypadMotion:
+		#print("test")
