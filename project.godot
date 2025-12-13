@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="co-op-defend"
-run/main_scene="uid://bnu33fspyr4kb"
+run/main_scene="uid://c6esq4p4lgvax"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
