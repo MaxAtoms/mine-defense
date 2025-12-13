@@ -26,6 +26,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="co-op-defend"
 
+[global_group]
+
+target=""
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

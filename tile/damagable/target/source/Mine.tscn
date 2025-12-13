@@ -1,3 +1,14 @@
-[gd_scene format=3 uid="uid://cscbf5pwdpxr2"]
+[gd_scene load_steps=3 format=3 uid="uid://cscbf5pwdpxr2"]
 
-[node name="Mine" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://kdrx1eln7hwt" path="res://tile/damagable/target/source/mine.png" id="1_3g76l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3g76l"]
+size = Vector2(24, 26)
+
+[node name="Mine" type="Area2D" groups=["target"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3g76l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3g76l")
