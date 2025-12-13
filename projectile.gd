@@ -11,11 +11,12 @@ func _ready():
 	global_rotation = spawnRot
 	
 func _physics_process(_delta: float) -> void:
-	velocity = Vector2(0,-SPEED).rotated(dir)
+	velocity = Vector2(0,SPEED).rotated(dir)
 	move_and_slide()
 
-func _on_area_2d_body_entered(_body: Node2D) -> void:
-	print("TODO: Hit handling")
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("enemy"):
+		print("Hit an enemy :)")
 	#queue_free()
 
 
