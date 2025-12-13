@@ -1,4 +1,25 @@
-[gd_scene format=3 uid="uid://bfxoimt6hsr3t"]
+[gd_scene load_steps=2 format=3 uid="uid://bfxoimt6hsr3t"]
+
+[sub_resource type="GDScript" id="GDScript_ypthw"]
+script/source = "extends Control
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+func on_start_pressed():
+	# TODO: insert going to game screen here
+	pass
+
+func on_quit_pressed():
+	get_tree().quit()
+"
 
 [node name="MainMenu" type="Control"]
 layout_direction = 2
@@ -8,6 +29,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = SubResource("GDScript_ypthw")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -43,3 +65,6 @@ text = "PLAY"
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "QUIT"
+
+[connection signal="button_up" from="CenterContainer/MarginContainer/VBoxContainer/Button" to="." method="on_start_pressed"]
+[connection signal="button_up" from="CenterContainer/MarginContainer/VBoxContainer/Button2" to="." method="on_quit_pressed"]
