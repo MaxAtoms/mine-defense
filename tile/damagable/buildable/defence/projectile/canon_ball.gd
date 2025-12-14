@@ -19,7 +19,22 @@ func _on_body_entered(body: Node2D) -> void:
 				var distance = global_position.distance_to(target.global_position)
 				target.damagable.damage(damage * distance / damage_range)
 		body.get_node("Damagable").damage(damage)
-		queue_free()
+		
+		#animation
+		_death()
+		#queue_free()
+
+func _death():
+	#ToDO: doesnt work
+	$Sprite2D.visible = false
+	$AnimatedSprite2D.visible = true
+	$AnimatedSprite2D.play()
+	$AnimatedSprite2D.animation = "default"
+
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	queue_free()
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
 	queue_free()
