@@ -14,7 +14,7 @@ radius = 25.0
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5yxaw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tehcs"]
-bg_color = Color(1, 1, 1, 1)
+bg_color = Color(0, 0.70980394, 0.69803923, 1)
 
 [node name="Quarry" type="StaticBody2D" groups=["target"]]
 collision_layer = 3
