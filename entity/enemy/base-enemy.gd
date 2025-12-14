@@ -1,12 +1,10 @@
 class_name BaseEnemy
 extends CharacterBody2D
 
-@export var max_health = 100
 @export var speed = 5000
 @export var damage = 1
 @export var target_randomness = 0.2
 
-var health = max_health
 var target: Node = null
 
 func _ready() -> void:
