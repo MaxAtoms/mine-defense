@@ -110,4 +110,3 @@ func get_bag_type():
 
 func take_item():
 	bag.take_items(1)
-
