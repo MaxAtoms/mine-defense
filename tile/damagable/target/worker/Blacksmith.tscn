@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bqj1upprtfbmd"]
+[gd_scene load_steps=10 format=3 uid="uid://bqj1upprtfbmd"]
 
-[ext_resource type="Script" path="res://tile/damagable/target/worker/blacksmith.gd" id="1_1vheo"]
+[ext_resource type="Script" uid="uid://28ldqrx5klbv" path="res://tile/damagable/target/worker/blacksmith.gd" id="1_1vheo"]
 [ext_resource type="Texture2D" uid="uid://d4bcy2u0fauv6" path="res://tile/damagable/target/worker/blacksmith.png" id="2_dlqg0"]
 [ext_resource type="PackedScene" uid="uid://274jjcdpf53a" path="res://interaction_components/interactable.tscn" id="3_l0kyk"]
 [ext_resource type="PackedScene" uid="uid://bkro40s70nwk6" path="res://tile/damagable/Damagable.tscn" id="4_yutxx"]
@@ -15,6 +15,10 @@ radius = 25.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gj3lc"]
 bg_color = Color(0, 0.70980394, 0.69803923, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1vheo"]
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Blacksmith" type="StaticBody2D" groups=["target"]]
 collision_layer = 3
@@ -56,5 +60,22 @@ grow_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxEmpty_oogeh")
 theme_override_styles/fill = SubResource("StyleBoxFlat_gj3lc")
 show_percentage = false
+
+[node name="ItemsLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.5
+offset_top = 22.0
+offset_right = 30.5
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "4/5 Iron"
+label_settings = SubResource("LabelSettings_1vheo")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="on_death" from="Damagable" to="." method="_on_damagable_on_death"]

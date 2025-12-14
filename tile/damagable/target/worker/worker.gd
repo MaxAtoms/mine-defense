@@ -4,6 +4,7 @@ extends StaticBody2D
 @onready var interactable: Interactable = $Interactable
 @onready var crafting_timer: Timer = $Timer
 @onready var progress_bar: ProgressBar = $ProgressBar
+@onready var items_label: Label = $ItemsLabel
 
 var worker_name = "worker"
 var ressource = Stone
@@ -20,6 +21,7 @@ func _ready() -> void:
 	interactable.cancel_interaction = _on_cancel_interaction
 	crafting_timer.wait_time = cooldown_in_sec
 	crafting_timer.timeout.connect(func(): _on_crafting_finished())
+	items_label.text = str(ressources.size()) + "/" + str(consumed_ressources_per_request) + " " + ressource.get_type()
 
 func _process(delta: float):
 	if crafting_timer.time_left == 0:
@@ -35,6 +37,7 @@ func _on_interact(interacting_component: InteractingComponent):
 			# Player has items and wants to put them down
 			print("Take all items")
 			ressources.append_array(interacting_component.take_all_items())
+			items_label.text = str(ressources.size()) + "/" + str(consumed_ressources_per_request) + " " + ressource.get_type()
 			interactable.is_interactable = true
 			return
 		
@@ -59,6 +62,7 @@ func _on_crafting_finished():
 	if interacting_component != null:
 		print("The ", worker_name, " provided ", produced_items_per_request," ", product.get_type(), " for interacting component ", interacting_component.id, ".")
 		ressources = ressources.slice(0, -consumed_ressources_per_request)
+		items_label.text = str(ressources.size()) + "/" + str(consumed_ressources_per_request) + " " + ressource.get_type()
 		interacting_component.receive_items([product.new()])
 	interacting_component = null
 	interactable.is_interactable = true

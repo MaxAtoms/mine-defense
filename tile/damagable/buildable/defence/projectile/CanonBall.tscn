@@ -1,7 +1,57 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfun8w02o07c0"]
+[gd_scene load_steps=14 format=3 uid="uid://bfun8w02o07c0"]
 
 [ext_resource type="Script" uid="uid://c7cnjjyrhgbkt" path="res://tile/damagable/buildable/defence/projectile/canon_ball.gd" id="1_cbgpe"]
 [ext_resource type="Texture2D" uid="uid://7k2hxk6cxyyw" path="res://tile/damagable/buildable/defence/projectile/ball.png" id="2_yu1xp"]
+[ext_resource type="Texture2D" uid="uid://bov0ytbcv2v12" path="res://tile/damagable/buildable/defence/projectile/explosion1.png" id="3_tds6a"]
+[ext_resource type="Texture2D" uid="uid://c688uqpdudvd1" path="res://tile/damagable/buildable/defence/projectile/explosion2.png" id="4_xn82j"]
+[ext_resource type="Texture2D" uid="uid://34vbmqg31h6a" path="res://tile/damagable/buildable/defence/projectile/explosion3.png" id="5_p5t75"]
+[ext_resource type="Texture2D" uid="uid://bi4eqsg4bdi6t" path="res://tile/damagable/buildable/defence/projectile/explosion4.png" id="6_fbcu0"]
+[ext_resource type="Texture2D" uid="uid://cgaodvmgxi77u" path="res://tile/damagable/buildable/defence/projectile/explosion5.png" id="7_lrxb2"]
+[ext_resource type="Texture2D" uid="uid://dbrn05uhkdscm" path="res://tile/zombie-skeleton/zombie_n_skeleton2.png" id="7_xn82j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5t75"]
+atlas = ExtResource("7_xn82j")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbcu0"]
+atlas = ExtResource("7_xn82j")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrxb2"]
+atlas = ExtResource("7_xn82j")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bwbk1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_tds6a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xn82j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_p5t75")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fbcu0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_lrxb2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5t75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbcu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrxb2")
+}],
+"loop": false,
+"name": &"default",
+"speed": 4.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yu1xp"]
 radius = 9.0
@@ -10,6 +60,11 @@ radius = 9.0
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("1_cbgpe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+top_level = true
+z_index = 15
+sprite_frames = SubResource("SpriteFrames_bwbk1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_yu1xp")
@@ -21,4 +76,5 @@ shape = SubResource("CircleShape2D_yu1xp")
 rect = Rect2(-9, -9, 18, 18)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
