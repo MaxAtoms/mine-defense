@@ -30,6 +30,7 @@ project/assembly_name="co-op-defend"
 
 target=""
 enemy=""
+defence=""
 
 [input]
 

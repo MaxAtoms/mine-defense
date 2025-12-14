@@ -3,6 +3,7 @@ extends Node2D
 @export var projectile_damage = 20
 @export var projectile_speed = 500
 @export var target_range = 300
+@export var shoot_interval = 0.5
 @export var projectile = preload("res://tile/damagable/buildable/defence/projectile/Arrow.tscn")
 
 @onready var main = get_tree().get_root().get_node("Map")
@@ -10,6 +11,7 @@ extends Node2D
 var target: Node2D = null
 
 func _ready() -> void:
+	$Cooldown.wait_time = shoot_interval
 	shoot()
 
 func shoot():

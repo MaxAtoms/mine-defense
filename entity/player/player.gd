@@ -77,8 +77,6 @@ func player_movement(delta):
 	
 
 func receive_items(items: Array[Item]):
-	print(Iron.new().get_type())
-	print(Item.new().get_type())
 	if items.size() == 0:
 		show_info_on_label("No Items received")
 		return
