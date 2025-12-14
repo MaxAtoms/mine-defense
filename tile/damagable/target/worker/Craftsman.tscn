@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bnpnnitk7x7n3"]
+[gd_scene load_steps=10 format=3 uid="uid://bnpnnitk7x7n3"]
 
-[ext_resource type="Script" path="res://tile/damagable/target/worker/craftsman.gd" id="1_yfkki"]
+[ext_resource type="Script" uid="uid://fhy2o2pvwuvb" path="res://tile/damagable/target/worker/craftsman.gd" id="1_yfkki"]
 [ext_resource type="Texture2D" uid="uid://drutr1jvm4ne1" path="res://tile/damagable/target/worker/craftsman.png" id="2_jk5st"]
 [ext_resource type="PackedScene" uid="uid://274jjcdpf53a" path="res://interaction_components/interactable.tscn" id="3_vrjpx"]
 [ext_resource type="PackedScene" uid="uid://bkro40s70nwk6" path="res://tile/damagable/Damagable.tscn" id="4_y8m0o"]
@@ -15,6 +15,10 @@ radius = 21.023796
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lly3p"]
 bg_color = Color(0, 0.70980394, 0.69803923, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yfkki"]
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Craftsman" type="StaticBody2D" groups=["target"]]
 collision_layer = 3
@@ -55,5 +59,22 @@ grow_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxEmpty_u0eku")
 theme_override_styles/fill = SubResource("StyleBoxFlat_lly3p")
 show_percentage = false
+
+[node name="ItemsLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.5
+offset_top = 22.0
+offset_right = 30.5
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "4/5 Iron"
+label_settings = SubResource("LabelSettings_yfkki")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="on_death" from="Damagable" to="." method="_on_damagable_on_death"]
