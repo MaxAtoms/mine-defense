@@ -66,8 +66,6 @@ func player_movement(delta):
 	
 
 func receive_items(items: Array[Item]):
-	print(Iron.new().get_type())
-	print(Item.new().get_type())
 	if items.size() == 0:
 		print("The player did not receive an item from the mine")
 		return
