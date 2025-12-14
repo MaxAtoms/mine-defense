@@ -26,9 +26,6 @@ script = ExtResource("1_5yxaw")
 max_health = 200.0
 auto_hide = false
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_tehcs")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -2)
 shape = SubResource("RectangleShape2D_3k7p1")
@@ -57,5 +54,8 @@ grow_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxEmpty_5yxaw")
 theme_override_styles/fill = SubResource("StyleBoxFlat_tehcs")
 show_percentage = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_tehcs")
 
 [connection signal="area_exited" from="Interactable" to="." method="_on_interactable_area_exited"]
