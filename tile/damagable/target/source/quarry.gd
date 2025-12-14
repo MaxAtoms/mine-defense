@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-@onready var interactable: Area2D = $Interactable
+@onready var interactable: Interactable = $Interactable
 @onready var mining_timer: Timer = $Timer
 
 var produced_items_per_request = 1
@@ -23,10 +23,10 @@ func _on_interact(interacting_component: InteractingComponent, _items: Array[Ite
 func _on_mining_finished():
 	mining_timer.stop()
 	if interacting_component != null:
-		print("The mine provided ", produced_items_per_request," iron for interacting component ", interacting_component.id, ".")
+		print("The mine provided ", produced_items_per_request," stone for interacting component ", interacting_component.id, ".")
 		var mined_items: Array[Item] = []
 		for i in range(produced_items_per_request):
-			mined_items.append(Iron.new())
+			mined_items.append(Stone.new())
 		interacting_component.receive_items(mined_items)
 	interacting_component = null
 	interactable.is_interactable = true

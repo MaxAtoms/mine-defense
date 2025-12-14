@@ -1,11 +1,10 @@
-
-[gd_scene load_steps=76 format=3 uid="uid://bnu33fspyr4kb"]
-
+[gd_scene load_steps=77 format=3 uid="uid://bnu33fspyr4kb"]
 
 [ext_resource type="Script" uid="uid://bpv80mqlwfkai" path="res://entity/player/player.gd" id="1_o3s7f"]
 [ext_resource type="Texture2D" uid="uid://ldt0gyrau0e5" path="res://tile/penguin/default/front1.png" id="2_dx687"]
 [ext_resource type="Texture2D" uid="uid://18wxoohayqoc" path="res://tile/penguin/tux.png" id="2_o3s7f"]
 [ext_resource type="Texture2D" uid="uid://1hf38iuxgrne" path="res://tile/penguin/default/front2.png" id="3_3wyco"]
+[ext_resource type="PackedScene" uid="uid://bpb2ho2elsry4" path="res://interaction_components/interacting_component.tscn" id="3_5o33p"]
 [ext_resource type="Texture2D" uid="uid://bf6vt5tm8fcu1" path="res://tile/penguin/default/front3.png" id="4_pikof"]
 [ext_resource type="Texture2D" uid="uid://dof4fvup4hx81" path="res://tile/penguin/default/front4.png" id="5_ibuna"]
 [ext_resource type="Texture2D" uid="uid://cfi55iaggj403" path="res://tile/penguin/air/air_front1.png" id="6_ekv3j"]
@@ -55,7 +54,6 @@
 [ext_resource type="Texture2D" uid="uid://bm62nlxd7agtx" path="res://tile/penguin/tuxair.png" id="51_ibuna"]
 [ext_resource type="Texture2D" uid="uid://bea4n5feksdl1" path="res://tile/penguin/tuxfire.png" id="52_ekv3j"]
 [ext_resource type="Texture2D" uid="uid://7np6iyt8l4os" path="res://tile/penguin/tuxice.png" id="53_mrwja"]
-[ext_resource type="PackedScene" uid="uid://bpb2ho2elsry4" path="res://interaction_components/interacting_component.tscn" id="3_5o33p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5o33p"]
 atlas = ExtResource("2_o3s7f")

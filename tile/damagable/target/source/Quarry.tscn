@@ -1,3 +1,34 @@
-[gd_scene format=3 uid="uid://t8cefufwgh8b"]
+[gd_scene load_steps=6 format=3 uid="uid://t8cefufwgh8b"]
 
-[node name="Quarry" type="Node2D" groups=["target"]]
+[ext_resource type="Texture2D" uid="uid://chv28vtweidbq" path="res://tile/damagable/target/source/quarry.png" id="1_3k7p1"]
+[ext_resource type="Script" uid="uid://tjufnrfv5plr" path="res://tile/damagable/target/source/quarry.gd" id="1_5yxaw"]
+[ext_resource type="PackedScene" uid="uid://274jjcdpf53a" path="res://interaction_components/interactable.tscn" id="2_7j31m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3k7p1"]
+size = Vector2(25, 29)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5yxaw"]
+radius = 25.0
+
+[node name="Quarry" type="StaticBody2D" groups=["target"]]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_5yxaw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3k7p1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, 1.5)
+shape = SubResource("RectangleShape2D_3k7p1")
+
+[node name="Interactable" parent="." instance=ExtResource("2_7j31m")]
+interact_name = "Mine Stone"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(3, 1)
+shape = SubResource("CircleShape2D_5yxaw")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="area_exited" from="Interactable" to="." method="_on_interactable_area_exited"]

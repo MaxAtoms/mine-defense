@@ -11,9 +11,7 @@ func _input(event: InputEvent) -> void:
 		if current_interactions:
 			can_interact = false
 			interact_label.hide()
-			
 			await current_interactions[0].interact.call(self, [] as Array[Item])
-			
 			can_interact = true
 
 func receive_items(items: Array[Item]):
