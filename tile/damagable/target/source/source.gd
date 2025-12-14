@@ -24,7 +24,7 @@ func _process(delta: float):
 		return
 	progress_bar.value =  (1 - (mining_timer.time_left / mining_timer.wait_time)) * 100
 
-func _on_interact(interacting_component: InteractingComponent, _items: Array[Item]):
+func _on_interact(interacting_component: InteractingComponent):
 	if interactable.is_interactable:
 		interactable.is_interactable = false
 		self.interacting_component = interacting_component

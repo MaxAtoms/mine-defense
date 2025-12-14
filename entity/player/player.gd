@@ -19,7 +19,7 @@ var bag: Bag = Bag.new()
 @onready var map = get_node("/root/Map")
 
 func _ready():
-	bag.add_item([ArcherTower.new()])
+	#bag.add_item([ArcherTower.new()])
 	map.refresh_inventory_display(device_id, bag.get_item_count(), bag.get_item_type(), bag.get_size())
 
 func _physics_process(delta: float) -> void:
@@ -63,7 +63,14 @@ func player_movement(delta):
 	
 		
 	move_and_slide()
-	
+
+func get_item_type() -> String:
+	return bag.get_item_type()
+
+func take_all_items() -> Array[Item]:
+	var items = bag.take_items(bag.size)
+	map.refresh_inventory_display(device_id, bag.get_item_count(), bag.get_item_type(), bag.get_size())
+	return items
 
 func receive_items(items: Array[Item]):
 	if items.size() == 0:

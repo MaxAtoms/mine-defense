@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sqsqcfy82m1m"
-path="res://.godot/imported/smith.png-c7faa88140cd190c3046d327ef02b7b8.ctex"
+uid="uid://d4bcy2u0fauv6"
+path="res://.godot/imported/blacksmith.png-b2018133f1e1c8f06135723cac4e08f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tile/damagable/target/worker/smith.png"
-dest_files=["res://.godot/imported/smith.png-c7faa88140cd190c3046d327ef02b7b8.ctex"]
+source_file="res://tile/damagable/target/worker/blacksmith.png"
+dest_files=["res://.godot/imported/blacksmith.png-b2018133f1e1c8f06135723cac4e08f9.ctex"]
 
 [params]
 
