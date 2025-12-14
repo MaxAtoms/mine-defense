@@ -92,3 +92,11 @@ func receive_items(items: Array[Item]):
 
 		
 	#map.refresh_inventory_display(device_id, bag.get_size(), bag.get_item_type())
+
+	
+func get_bag_type():
+	return bag.get_item_type()
+
+func take_item():
+	bag.take_items(1)
+
