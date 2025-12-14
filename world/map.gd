@@ -19,6 +19,8 @@ var players = {}
 
 func _process(delta):
 	
+	refresh_inventory_display()
+	
 	var enemies_present: bool = get_node("Spawner").get_child_count() > 0
 				
 	time += delta
@@ -44,7 +46,7 @@ func _process(delta):
 		time = day_length / 4
 	
 	if time_label != null:
-		time_label.text = "Current Time: " + ("Night" if is_night else "Day") + "  " + str(time)
+		time_label.text = "Current Time: " + ("Night" if is_night else "Day") + "  " + ("%.2f" % time)
 	
 func _input(event: InputEvent) -> void:
 	var deviceId = event.device
@@ -61,3 +63,32 @@ func _input(event: InputEvent) -> void:
 	
 	#if InputEventJoypadMotion:
 		#print("test")
+
+func refresh_inventory_display():
+	var players = Input.get_connected_joypads().size() + 1
+	
+	for child in get_node("CanvasLayer2/Control/MarginContainer/HBoxContainer/HBoxContainer").get_children():
+			child.queue_free()
+	
+	for player_id in players:
+		print("Player " + str(player_id))
+		
+		var name_label = Label.new()
+		name_label.text = "Player " + str(player_id) + ": "		
+		get_node("CanvasLayer2/Control/MarginContainer/HBoxContainer/HBoxContainer").add_child(name_label)
+		
+		var icon = TextureRect.new()
+		icon.texture = load("res://tile/icon/iron.png")  # Load your icon texture
+		icon.expand_mode = TextureRect.EXPAND_KEEP_SIZE     # Preserve original size
+		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		icon.custom_minimum_size = Vector2(32, 32)           # Optional: fixed icon size
+		get_node("CanvasLayer2/Control/MarginContainer/HBoxContainer/HBoxContainer").add_child(icon)
+		
+		var amount_label = Label.new()
+		amount_label.text = "0" #TODO add item count for wood
+		get_node("CanvasLayer2/Control/MarginContainer/HBoxContainer/HBoxContainer").add_child(amount_label)
+		
+		
+		var fixed_spacer = Control.new()
+		fixed_spacer.custom_minimum_size = Vector2(16, 0)
+		get_node("CanvasLayer2/Control/MarginContainer/HBoxContainer/HBoxContainer").add_child(fixed_spacer)

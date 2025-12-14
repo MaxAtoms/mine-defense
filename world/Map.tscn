@@ -1373,6 +1373,16 @@ z_index = 200
 layout_mode = 2
 text = "Current Time:"
 
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer2/Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer2/Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Back to Menu
+"
+
 [node name="ArcherTower" parent="." instance=ExtResource("6_da0r4")]
 position = Vector2(269, 484)
 
