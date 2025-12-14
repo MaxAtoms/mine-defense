@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcjuq8ma82k2o"]
+
+[ext_resource type="Script" uid="uid://cotwgmkjd7sl5" path="res://user_interface/game_over.gd" id="1_v0huv"]
+[ext_resource type="FontFile" uid="uid://cgl26ycgmnox5" path="res://tile/fonts/Righteous.ttf" id="2_adlvt"]
+
+[sub_resource type="FontVariation" id="FontVariation_12xn0"]
+base_font = ExtResource("2_adlvt")
+
+[sub_resource type="FontVariation" id="FontVariation_lingh"]
+base_font = ExtResource("2_adlvt")
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v0huv")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_12xn0")
+theme_override_font_sizes/font_size = 100
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="CenterContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_12xn0")
+theme_override_font_sizes/font_size = 24
+text = "
+
+Your Score: 0
+
+"
+horizontal_alignment = 1
+
+[node name="ReplayButton" type="Button" parent="CenterContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_lingh")
+theme_override_font_sizes/font_size = 20
+text = "PLAY AGAIN"
+
+[node name="ExitButton" type="Button" parent="CenterContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_lingh")
+theme_override_font_sizes/font_size = 20
+text = "QUIT"
+
+[connection signal="button_up" from="CenterContainer/MarginContainer/VBoxContainer/ReplayButton" to="." method="on_menu_pressed"]
+[connection signal="button_up" from="CenterContainer/MarginContainer/VBoxContainer/ExitButton" to="." method="on_quit_pressed"]

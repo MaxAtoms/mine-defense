@@ -1101,6 +1101,9 @@ func _process(delta: float) -> void:
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_xawsu")
+day_length = null
+night_color = null
+max_player = null
 
 [node name="ObjectLayer" type="TileMapLayer" parent="."]
 z_index = -1

@@ -1,4 +1,5 @@
 extends Source
+class_name Mine
 
 func _init():
 	source_name = "mine"

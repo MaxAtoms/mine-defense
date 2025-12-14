@@ -1,4 +1,5 @@
 extends Source
+class_name Sawmill
 
 func _init():
 	source_name = "sawmill"
