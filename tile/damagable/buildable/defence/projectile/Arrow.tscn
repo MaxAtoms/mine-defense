@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://46rptq8vfmvi"]
 
-[ext_resource type="Script" uid="uid://bblyowc0dscno" path="res://projectile.gd" id="1_spe1p"]
+[ext_resource type="Script" uid="uid://bblyowc0dscno" path="res://tile/damagable/buildable/defence/projectile/arrow.gd" id="1_spe1p"]
 [ext_resource type="Texture2D" uid="uid://c3finnco8nusf" path="res://tile/damagable/buildable/defence/projectile/arrow_5.png" id="2_o4baa"]
 [ext_resource type="Texture2D" uid="uid://va38mgtd1tbw" path="res://tile/damagable/buildable/defence/projectile/arrow_6.png" id="3_inatu"]
 [ext_resource type="Texture2D" uid="uid://nuewsxesfx8h" path="res://tile/damagable/buildable/defence/projectile/arrow_7.png" id="4_iqoq3"]

@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://chv28vtweidbq" path="res://tile/damagable/target/source/quarry.png" id="1_3k7p1"]
 [ext_resource type="Script" path="res://tile/damagable/target/source/quarry.gd" id="1_5yxaw"]
 [ext_resource type="PackedScene" uid="uid://274jjcdpf53a" path="res://interaction_components/interactable.tscn" id="2_7j31m"]
+[ext_resource type="PackedScene" uid="uid://bkro40s70nwk6" path="res://tile/damagable/Damagable.tscn" id="2_tehcs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3k7p1"]
 size = Vector2(25, 29)
@@ -19,6 +20,8 @@ bg_color = Color(1, 1, 1, 1)
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_5yxaw")
+
+[node name="Damagable" parent="." instance=ExtResource("2_tehcs")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_3k7p1")

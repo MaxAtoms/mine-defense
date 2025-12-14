@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://kdrx1eln7hwt" path="res://tile/damagable/target/source/mine.png" id="1_3g76l"]
 [ext_resource type="Script" uid="uid://sdfmthes2pxj" path="res://tile/damagable/target/source/mine.gd" id="1_fshgx"]
+[ext_resource type="PackedScene" uid="uid://bkro40s70nwk6" path="res://tile/damagable/Damagable.tscn" id="2_b4p2q"]
 [ext_resource type="PackedScene" uid="uid://274jjcdpf53a" path="res://interaction_components/interactable.tscn" id="2_qj8e6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3g76l"]
@@ -19,6 +20,8 @@ bg_color = Color(1, 1, 1, 1)
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_fshgx")
+
+[node name="Damagable" parent="." instance=ExtResource("2_b4p2q")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_3g76l")

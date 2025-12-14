@@ -8,6 +8,7 @@
 bg_color = Color(1, 1, 1, 1)
 
 [node name="Damagable" type="Node2D"]
+z_index = 20
 script = ExtResource("1_5cjur")
 
 [node name="HealthBar" type="ProgressBar" parent="."]

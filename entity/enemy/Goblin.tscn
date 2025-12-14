@@ -1,13 +1,17 @@
-[gd_scene load_steps=60 format=3 uid="uid://dlnd4d33csi8a"]
+[gd_scene load_steps=61 format=3 uid="uid://dlnd4d33csi8a"]
 
 [ext_resource type="Script" uid="uid://dg0npm8a3gbfj" path="res://entity/enemy/goblin.gd" id="1_keufw"]
-[ext_resource type="Texture2D" uid="uid://1qvo2abbiry8" path="res://entity/enemy/goblin.png" id="2_keufw"]
+[ext_resource type="PackedScene" uid="uid://bxmocueqteh4f" path="res://entity/enemy/Attacker.tscn" id="2_6s4gu"]
 [ext_resource type="PackedScene" uid="uid://bkro40s70nwk6" path="res://tile/damagable/Damagable.tscn" id="2_wb21f"]
 [ext_resource type="Texture2D" uid="uid://41oyx0nyhy3n" path="res://tile/goblin/goblin.png" id="4_6s4gu"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6s4gu"]
+radius = 16.0
+height = 54.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l6btp"]
-radius = 12.0
-height = 32.0
+radius = 15.0
+height = 52.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lmws3"]
 atlas = ExtResource("4_6s4gu")
@@ -454,11 +458,12 @@ collision_mask = 2
 script = ExtResource("1_keufw")
 metadata/_edit_group_ = true
 
-[node name="Damagable" parent="." instance=ExtResource("2_wb21f")]
+[node name="Attacker" parent="." instance=ExtResource("2_6s4gu")]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-texture = ExtResource("2_keufw")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attacker"]
+shape = SubResource("CapsuleShape2D_6s4gu")
+
+[node name="Damagable" parent="." instance=ExtResource("2_wb21f")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_l6btp")
