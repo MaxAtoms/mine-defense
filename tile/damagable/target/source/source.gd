@@ -3,6 +3,7 @@ extends StaticBody2D
 
 @onready var interactable: Interactable = $Interactable
 @onready var mining_timer: Timer = $Timer
+@onready var progress_bar: ProgressBar = $ProgressBar
 
 var source_name = "source"
 var product = Wood
