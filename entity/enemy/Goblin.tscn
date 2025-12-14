@@ -169,6 +169,7 @@ animations = [{
 }]
 
 [node name="Goblin" type="CharacterBody2D" groups=["enemy"]]
+z_index = 10
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_keufw")

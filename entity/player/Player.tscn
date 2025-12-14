@@ -557,6 +557,7 @@ font_color = Color(0, 0, 0, 1)
 outline_size = 9
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 8
 collision_mask = 7
 script = ExtResource("1_o3s7f")
 
