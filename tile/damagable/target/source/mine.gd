@@ -1,4 +1,4 @@
-extends Area2D
+extends StaticBody2D
 
 @onready var interactable: Area2D = $Interactable
 @onready var timer: Timer = $Timer
