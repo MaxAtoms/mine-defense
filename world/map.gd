@@ -61,7 +61,7 @@ func _process(delta):
 		time = day_length / 4
 	
 	if time_label != null:
-		time_label.text = "Current Time: " + ("Night" if is_night else "Day") + "  " + ("%.2f" % time)
+		time_label.text = "Current Time: " + ("Night" if is_night else "Day  ")
 	
 func _input(event: InputEvent) -> void:
 	var deviceId = event.device
@@ -82,7 +82,7 @@ func _input(event: InputEvent) -> void:
 func goto_main_menu():
 	get_tree().quit()
 
-func refresh_inventory_display(device_id: int, amount: int, item_type: int):
+func refresh_inventory_display(device_id: int, amount: int, item_type: int, bag_size: int):
 	
 	for child in get_node("CanvasLayer2/Control/MarginContainer/HBoxContainer/HBoxContainer").get_children():
 			child.queue_free()
@@ -91,6 +91,8 @@ func refresh_inventory_display(device_id: int, amount: int, item_type: int):
 	
 	var sorted_keys = inventory_values.keys()
 	sorted_keys.sort()
+	
+	var font = load("res://tile/fonts/Righteous.ttf")  # FontFile resource
 	
 	for player_id in sorted_keys:
 		print("Player " + str(player_id))
@@ -102,7 +104,9 @@ func refresh_inventory_display(device_id: int, amount: int, item_type: int):
 			icon_path = "res://tile/icon/stone.png"
 		
 		var name_label = Label.new()
-		name_label.text = "Player " + str(player_id) + ": "		
+		name_label.text = "Player " + str(player_id) + ": "	
+		name_label.add_theme_font_override("font", font)
+		name_label.add_theme_font_size_override("font_size", 10)
 		get_node("CanvasLayer2/Control/MarginContainer/HBoxContainer/HBoxContainer").add_child(name_label)
 		
 		var icon = TextureRect.new()
@@ -113,7 +117,9 @@ func refresh_inventory_display(device_id: int, amount: int, item_type: int):
 		get_node("CanvasLayer2/Control/MarginContainer/HBoxContainer/HBoxContainer").add_child(icon)
 		
 		var amount_label = Label.new()
-		amount_label.text = "0" #TODO add item count for wood
+		amount_label.text = str(inventory_values.get(player_id)[1]) + " / " + str(bag_size)
+		amount_label.add_theme_font_override("font", font)
+		amount_label.add_theme_font_size_override("font_size", 10)
 		get_node("CanvasLayer2/Control/MarginContainer/HBoxContainer/HBoxContainer").add_child(amount_label)
 		
 		
