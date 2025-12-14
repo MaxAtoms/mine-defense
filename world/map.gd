@@ -1,5 +1,4 @@
 extends Node2D
-
 signal phase_change
 
 # Called when the node enters the scene tree for the first time.
@@ -16,6 +15,7 @@ var curve_strength := 2.0 # higher = more square
 @onready var night_color_rect = $CanvasLayer/ColorRect
 @onready var time_label = $CanvasLayer2/Control/MarginContainer/HBoxContainer/Label
 
+
 var time := 4.0 #day_length / 2
 var is_night := false
 
@@ -26,6 +26,13 @@ var players = {}
 var inventory_values: Dictionary[int, Array] = {}
 
 func _process(delta):
+	
+	if (get_children().filter(func(c): return c is Mine).size() == 0 \
+	and get_children().filter(func(c): return c is Quarry).size() == 0 \
+	and get_children().filter(func(c): return c is Sawmill).size() == 0):
+		get_tree().change_scene_to_file("res://user_interface/game_over.tscn")
+		
+	
 	var enemies_present: bool = get_node("Spawner").get_child_count() > 0
 
 	time += delta
@@ -62,8 +69,8 @@ func _process(delta):
 	
 	if time_label != null:
 		time_label.text = "Current Time: " + ("Night" if is_night else "Day  ")
-	
-	print("current time: " + str(time) + " enemies " + str(enemies_present))
+		
+	score.score = round_counter * 100
 	
 func _input(event: InputEvent) -> void:
 	var deviceId = event.device
