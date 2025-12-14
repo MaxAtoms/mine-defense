@@ -14,7 +14,7 @@ radius = 22.0
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fshgx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b4p2q"]
-bg_color = Color(1, 1, 1, 1)
+bg_color = Color(0, 0.71, 0.69816667, 1)
 
 [node name="Mine" type="StaticBody2D" groups=["target"]]
 collision_layer = 3
@@ -22,6 +22,8 @@ collision_mask = 3
 script = ExtResource("1_fshgx")
 
 [node name="Damagable" parent="." instance=ExtResource("2_b4p2q")]
+max_health = 200.0
+bar_visible_seconds = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_3g76l")
