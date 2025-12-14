@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 	pass
 	
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("build"):
+	if event.is_action_pressed("build") and event.device == get_parent().device_id:
 		var bag_type = get_parent().get_bag_type()
 
 		var instance
