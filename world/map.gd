@@ -16,7 +16,7 @@ var curve_strength := 2.0 # higher = more square
 @onready var night_color_rect = $CanvasLayer/ColorRect
 @onready var time_label = $CanvasLayer2/Control/MarginContainer/HBoxContainer/Label
 
-var time := day_length / 2
+var time := 4 #day_length / 2
 var is_night := false
 
 @export var max_player = 4
