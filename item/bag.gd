@@ -14,18 +14,18 @@ func set_size(new_size: int):
 	size = new_size
 
 # 
-func get_item_type() -> int:
+func get_item_type() -> String:
 	if items.size() > 0:
-		return typeof(items[0])
-	return TYPE_NIL
+		return items[0].get_type()
+	return ""
 
 func get_item_count() -> int:
 	return items.size()
 
 # Returns the amount of items that can still be stored in the bag
 # -1 indicates that the bag contains a different type of item
-func can_carry(item_type: int) -> int:
-	if items.size() > 0 and item_type != typeof(items[0]):
+func can_carry(item_type: String) -> int:
+	if items.size() > 0 and item_type != items[0].get_type():
 		return -1;
 	return size - items.size();
 
@@ -36,7 +36,7 @@ func add_item(new_items: Array[Item]) -> int:
 	if (new_items.size() <= 0):
 		return 0
 	
-	var carryable_items = can_carry(typeof(new_items[0]))
+	var carryable_items = can_carry(new_items[0].get_type())
 	
 	if carryable_items <= 0:
 		return carryable_items

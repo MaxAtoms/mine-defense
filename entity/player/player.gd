@@ -56,12 +56,13 @@ func player_movement(delta):
 		direction = Direction.UP
 	else:
 		$AnimatedSprite2D.animation = "idle_" + Direction.keys()[direction].to_lower() + str(device_id)
-		
 	
 		
 	move_and_slide()
 
 func receive_items(items: Array[Item]):
+	print(Iron.new().get_type())
+	print(Item.new().get_type())
 	if items.size() == 0:
 		print("The player did not receive an item from the mine")
 		return

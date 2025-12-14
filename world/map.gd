@@ -23,7 +23,7 @@ var is_night := false
 var players = {}
 
 #Dict of device id -> [item type, item amount]
-var inventory_values: Dictionary[int, Vector2i] = {}
+var inventory_values: Dictionary[int, Array] = {}
 
 func _process(delta):
 	var enemies_present: bool = get_node("Spawner").get_child_count() > 0
@@ -82,12 +82,12 @@ func _input(event: InputEvent) -> void:
 func goto_main_menu():
 	get_tree().quit()
 
-func refresh_inventory_display(device_id: int, amount: int, item_type: int, bag_size: int):
+func refresh_inventory_display(device_id: int, amount: int, item_type: String, bag_size: int):
 	
 	for child in get_node("CanvasLayer2/Control/MarginContainer/HBoxContainer/HBoxContainer").get_children():
 			child.queue_free()
 			
-	inventory_values[device_id] = Vector2i(item_type, amount)
+	inventory_values[device_id] = [item_type, amount]
 	
 	var sorted_keys = inventory_values.keys()
 	sorted_keys.sort()
@@ -98,9 +98,9 @@ func refresh_inventory_display(device_id: int, amount: int, item_type: int, bag_
 		print("Player " + str(player_id))
 		
 		var icon_path = "res://tile/icon/wood.png"	
-		if inventory_values.get(player_id)[0] == typeof(Iron):
+		if inventory_values.get(player_id)[0] == "iron":
 			icon_path = "res://tile/icon/iron.png"
-		elif inventory_values.get(player_id)[0] == typeof(Stone):
+		elif inventory_values.get(player_id)[0] == "stone":
 			icon_path = "res://tile/icon/stone.png"
 		
 		var name_label = Label.new()
