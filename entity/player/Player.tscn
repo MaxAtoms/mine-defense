@@ -542,7 +542,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sntwv"]
 radius = 12.0
-height = 36.0
+height = 24.0
 
 [sub_resource type="FontVariation" id="FontVariation_mrwja"]
 base_font = ExtResource("55_mrwja")
@@ -567,10 +567,11 @@ sprite_frames = SubResource("SpriteFrames_hy4hk")
 animation = &"go_right2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 7)
+position = Vector2(0, 16)
 shape = SubResource("CapsuleShape2D_sntwv")
 
 [node name="InteractingComponent" parent="." instance=ExtResource("3_5o33p")]
+visible = false
 
 [node name="AddItemLabel" type="Label" parent="."]
 z_index = 10
