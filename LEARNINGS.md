@@ -6,7 +6,7 @@ but please be considerate in your phrasing and refrain from assigning blame!
 
 ## What went well?
 
-- We able to create a functioning co-op game in just two days
+- We were able to create a functioning co-op game in just two days
 - People seemed to like the idea and enjoy playing in a team
 - Inventory/crafting system
 

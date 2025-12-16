@@ -7,7 +7,7 @@ var can_interact := true
 var id = Time.get_ticks_msec()
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact") and event.device == get_parent().device_id and can_interact:
+	if event.is_action_pressed("interact_%s" % get_parent().device_id) and can_interact:
 		if current_interactions:
 			can_interact = false
 			interact_label.hide()

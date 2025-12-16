@@ -71,21 +71,18 @@ func _process(delta):
 	score.score = round_counter * 100
 	
 func _input(event: InputEvent) -> void:
-	var deviceId = event.device
-	
-	if not players.has(deviceId):
-		print(Input.get_connected_joypads())
-		var playerScene = preload("res://entity/player/Player.tscn")
-		var player = playerScene.instantiate()
-		player.position = Vector2(800, 800)
-		
-		player.device_id = deviceId
-		players.set(deviceId, player)  
-		
-		add_child(player)
-	#if InputEventJoypadMotion:
-		#print("test")
-	
+	for i in range(0,3):
+		if (event.is_action("move_down_%s" % i) or event.is_action("move_up_%s" % i) or event.is_action("move_left_%s" % i) or event.is_action("move_right_%s" % i)) and not players.has(i):
+			print("Player ", i, " connected.")
+			var playerScene = preload("res://entity/player/Player.tscn")
+			var player = playerScene.instantiate()
+			player.position = Vector2(800, 800)
+			
+			player.device_id = i
+			players.set(i, player)
+			
+			add_child(player)
+
 func goto_main_menu():
 	get_tree().quit()
 
@@ -117,7 +114,7 @@ func refresh_inventory_display(device_id: int, amount: int, item_type: String, b
 		elif inventory_values.get(player_id)[0] == "canon":
 			icon_path = "res://tile/damagable/buildable/defence/canon.png"
 		elif inventory_values.get(player_id)[0] == "wall":
-			icon_path = "res://tile/wall/wall.png"
+			icon_path = "res://tile/damagable/buildable/defence/wall.png"
 		
 		var name_label = Label.new()
 		name_label.text = "Player " + str(player_id) + ": "	

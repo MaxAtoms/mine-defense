@@ -2,7 +2,7 @@ class_name Bag
 extends Node
 
 var size: int = 3
-var items: Array[Item] = []
+var items: Array[Item] = [Iron.new()]
 
 func get_size():
 	return size;

@@ -41,7 +41,7 @@ func _process(delta: float) -> void:
 			info_label.text = ""
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("drop_items") and event.device == device_id:
+	if event.is_action_pressed("drop_items_%s" % device_id):
 		bag.take_items(bag.size)
 		map.refresh_inventory_display(device_id, bag.get_item_count(), bag.get_item_type(), bag.get_size())
 
@@ -50,6 +50,7 @@ func show_info_on_label(info: String):
 	add_item_label_cooldown = 2.0
 
 func player_movement(delta):
+	#print("%s" % [device_id])
 	if Input.get_action_strength("move_right_%s" % [device_id]):
 		velocity.x = 1
 	elif Input.get_action_strength("move_left_%s" % [device_id]):
