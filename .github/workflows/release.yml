@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: Dockerfile
+      image: ./Dockerfile
 
     steps:
       - name: Checkout
@@ -21,4 +21,3 @@ jobs:
         run: ./Godot_v4.5.1-stable_linux.x86_64 --headless --export-release "CI-Web" ./mine-defense/project.godot
       - name: Zip export
         run: zip -r mine-defense-release.zip mine-defense-release
-      
