@@ -26,9 +26,9 @@ jobs:
       - name: Download Export Templates
         run: wget "https://downloads.godotengine.org/?version=4.5.1&flavor=stable&slug=export_templates.tpz&platform=templates" -O templates.tpz
       - name: Create Export Templates directory
-        run: mkdir -p /root/.local/share/godot/export_templates/4.5.1.stable
+        run: sudo mkdir -p /root/.local/share/godot/export_templates/4.5.1.stable
       - name: Unzip Export Templates
-        run: unzip -j templates.tpz -d /root/.local/share/godot/export_templates/4.5.1.stable
+        run: sudo unzip -j templates.tpz -d /root/.local/share/godot/export_templates/4.5.1.stable
       - name: Create Export Folder
         run: mkdir mine-defense-release
       - name: Create Export
