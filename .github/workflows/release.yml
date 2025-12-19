@@ -43,6 +43,7 @@ jobs:
           path: ./mine-defense-release.zip
 
   publish:
+    needs: export
     runs-on: ubuntu-latest
 
     steps:
