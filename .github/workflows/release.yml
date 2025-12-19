@@ -5,8 +5,6 @@ on:
   push:
     tags:
       - v*.*.*
-    branch:
-      - "main"
 
 jobs:
   export:
@@ -33,8 +31,6 @@ jobs:
         run: mkdir mine-defense-release
       - name: Create Export
         run: ./Godot_v4.5.1-stable_linux.x86_64 --headless --export-release "CI-Web" ./mine-defense/project.godot
-      - name: LOGGING
-        run: pwd && ls -la
       - uses: actions/upload-artifact@v6
         with:
           name: release-zip
@@ -51,8 +47,6 @@ jobs:
         with:
           name: release-zip
           path: ./mine-defense-release
-      - name: LOGGING
-        run: ls -la
       - name: Upload to itch.io
         run: butler push ./mine-defense-release maxatoms/mine-defense:html5 --userversion ${{ github.ref_name }}
         env:
