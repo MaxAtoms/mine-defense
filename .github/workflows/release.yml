@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Install dependencies
-        run: apt-get update && apt-get install -y wget zip unzip git tar
+        run: sudo apt-get update && sudo apt-get install -y wget zip unzip git tar
       - name: Checkout
         uses: actions/checkout@v6
         with:
