@@ -33,14 +33,12 @@ jobs:
         run: mkdir mine-defense-release
       - name: Create Export
         run: ./Godot_v4.5.1-stable_linux.x86_64 --headless --export-release "CI-Web" ./mine-defense/project.godot
-      - name: Zip export
-        run: zip -rj mine-defense-release.zip mine-defense-release/*
       - name: LOGGING
         run: pwd && ls -la
       - uses: actions/upload-artifact@v6
         with:
           name: release-zip
-          path: ./mine-defense-release.zip
+          path: ./mine-defense-release
 
   publish:
     needs: export
@@ -52,8 +50,8 @@ jobs:
       - uses: actions/download-artifact@v6
         with:
           name: release-zip
-          path: ./mine-defense-release.zip
+          path: ./mine-defense-release
       - name: Upload to itch.io
-        run: butler push ./mine-defense-release.zip maxatoms/mine-defense:html5 --userversion ${{ github.ref_name }}
+        run: butler push ./mine-defense-release maxatoms/mine-defense:html5 --userversion ${{ github.ref_name }}
         env:
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
